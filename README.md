@@ -27,6 +27,7 @@
 
 | 名字 | 一句话 | 讲解 |
 |---|---|---|
+| 📝 [**drip-review-generator（商品评价草稿）**](#-drip-review-generator商品评价草稿) | 把真实客户反馈整理成适合美国市场的英文评价草稿，附来源校验与发布资格判定 | - |
 | 💽 [**storage-analyzer（清理垃圾）**](#-storage-analyzer清理垃圾) | 一句话扫描 Mac / Windows 整机磁盘，三色分级给清理决策，网页上一键移废纸篓 | [公众号文章](https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA) |
 | 🔥 [**aihot（AI HOT 资讯查询）**](#-aihotai-hot-资讯查询) | 让 Agent 用一句话拿到 aihot.virxact.com 每天的 AI HOT 日报和全部 AI 动态，无需 API Key | [aihot.virxact.com](https://aihot.virxact.com) |
 | 🧹 [**neat-freak（洁癖）**](#-neat-freak洁癖) | 干完活跑一下 `/neat`，自动把你这次改的东西跟项目文档、CLAUDE.md、Agent 记忆全部对齐 | [公众号文章](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg) |
@@ -50,6 +51,41 @@
 ## ✨ Skills
 
 <a id="-skills"></a>
+
+<table>
+<tr><td>
+
+### 📝 drip-review-generator（商品评价草稿）
+
+> *"购买关注点可以固定，客户体验不能预设。"*
+
+给 Drip Sneakers 用的商品评价内容生产与质检 skill。丢进商品信息和客户反馈，输出适合美国消费者阅读的英文评价草稿，并附上逐条来源校验结果。
+
+**它坚持什么**
+
+- 姓名、日期、星级、物流、尺码、穿着反馈都必须来自真实来源。缺失就留空，不猜测补齐
+- 星级不按情绪推算，日期不随机分配，不把中立或负面意见改写成正面评价
+- `requested_count` 只是上限：只有 3 条有效来源就只输出 3 条，不用空洞五星评价凑数
+- 内部示例必须单独标记 `illustrative`，不能混进真实评价发布流程
+
+**它不做什么**
+
+不登录后台、不写入评价、不发布。`publish_eligible: true` 只表示可以交接给后续发布模块，不代表已发布、已验证购买或满足平台要求。
+
+**怎么触发**
+
+```
+帮我整理这个商品的评价草稿
+把这个商品的客户反馈翻译成英文评价
+生成一份内部排版示例（会标注 illustrative）
+```
+
+**🌐 跨平台**：任何支持 SKILL.md 的 Agent
+
+→ [SKILL.md](./drip-review-generator/SKILL.md)
+
+</td></tr>
+</table>
 
 <table>
 <tr><td>

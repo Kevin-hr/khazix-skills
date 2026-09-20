@@ -27,6 +27,7 @@ Every skill here is a structured instruction set that agents load directly. Foll
 
 | Name | One-liner | Article |
 |---|---|---|
+| 📝 [**drip-review-generator**](#-drip-review-generator) | Turns real customer feedback into US-market English review drafts, with source validation and publish-eligibility gating | - |
 | 💽 [**storage-analyzer**](#-storage-analyzer) | One sentence to scan your whole Mac / Windows drive — three-tier cleanup plan, one-click trash from the browser | [Article (Chinese)](https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA) |
 | 🔥 [**aihot**](#-aihot-ai-hot-news-query) | Lets your agent pull AI HOT's daily report and all AI news from aihot.virxact.com with one Chinese sentence — no API key | [aihot.virxact.com](https://aihot.virxact.com) |
 | 🧹 [**neat-freak**](#-neat-freak) | After a session, run `/neat` to reconcile your project docs, CLAUDE.md, and agent memory with the code | [Article (Chinese)](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg) |
@@ -50,6 +51,41 @@ Replace `<skill-name>` with the one you want — e.g. `neat-freak`, `hv-analysis
 ## ✨ Skills
 
 <a id="-skills"></a>
+
+<table>
+<tr><td>
+
+### 📝 drip-review-generator
+
+> *"Purchase concerns can be fixed. Customer experience cannot be assumed."*
+
+A product-review content and QA skill built for Drip Sneakers. Feed it product info and customer feedback; it returns English review drafts written for a US audience, plus a per-item source validation result.
+
+**What it insists on**
+
+- Names, dates, star ratings, shipping, sizing, and wear feedback must come from a real source. Missing means empty — never guessed
+- Ratings are not inferred from tone, dates are not randomized, and neutral or negative opinions are not rewritten as positive
+- `requested_count` is a ceiling, not a quota: 3 valid sources means 3 drafts, never padded with empty five-star filler
+- Internal examples must be labeled `illustrative` and can never enter the real review pipeline
+
+**What it does not do**
+
+No backend login, no review submission, no publishing. `publish_eligible: true` only means the draft can be handed to a downstream publishing module — it does not mean the review was published, the purchase was verified, or platform requirements were met.
+
+**How to trigger** (Chinese — the inputs and outputs are described bilingually)
+
+```
+整理一下这个商品的评价草稿
+把这批客户反馈翻成英文评价
+生成一份内部排版示例（会标注 illustrative）
+```
+
+**🌐 Cross-platform**: any SKILL.md-supporting agent
+
+→ [SKILL.md](./drip-review-generator/SKILL.md)
+
+</td></tr>
+</table>
 
 <table>
 <tr><td>
